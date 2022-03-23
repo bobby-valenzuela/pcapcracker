@@ -22,6 +22,7 @@ __Notes:__
     - old bettercap versions
     - old pwnagotchi versions
     - tshark (with filter options)
+- The wordlist supplied is an extremely small sample wordlist. It's a slice of the original "rockyou" wordlist from Kali linux. A much larger wordlist should be used for best results. [Wordlists for download](https://weakpass.com/wordlist)
 
 ## Pre-requisites/Initial Config
 
