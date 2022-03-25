@@ -2,8 +2,13 @@
 
 import os,sys,subprocess
 from re import search as reg
+from inspect import getsourcefile
+  
+  
+# pwd = os.path.dirname(os.path.abspath(__file__))
 
-pwd = os.path.dirname(os.path.abspath(__file__))
+# COMPIL VERSION
+pwd = os.path.dirname(getsourcefile(lambda:0))
 args = sys.argv
 
 # Arguments
@@ -27,6 +32,8 @@ download_link = {
 
 hashcat_link = download_link["hashcat"][version]
 hashcat_utils_link = download_link["hashcat_utils"][utils_version]
+
+
 
 # sys.platform --> linux, win32, Darwin
 host_os = 'win' if sys.platform == 'win32' else 'lin' 
@@ -215,7 +222,7 @@ else:
         
         print("\nDo not clean up the cap / pcap file (e.g. with wpaclean), as this will remove useful and important frames from the dump file.\nDo not use filtering options while collecting WiFi traffic.\n")
 
-    elif(os.stat("failedtoconvert.txt").st_size == 0):
+    elif(os.path.isfile('failedtoconvert.txt') and os.stat("failedtoconvert.txt").st_size == 0):
         runCmd('rm failedtoconvert.txt')
     else:
         # Display cracked pcaps 
