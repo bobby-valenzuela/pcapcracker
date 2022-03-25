@@ -9,6 +9,9 @@ __What this does__
 
 Clip of this in action [here](https://link.us1.storjshare.io/s/juouchkuithxm5u2idjbv5uv2uqq/clips/pcapcracker_demo.mp4)
 
+Note: There's also a zip file containing a windows executable with a README.txt file containing the three steps to run this on your pcap files.
+
+
 __Notes:__
 - Uses attack mode "2500" (superceded by 22000 in Hashcat v6 - [see here](https://hashcat.net/forum/thread-10253.html))
 - Adds '-w 3 --hwmon-temp-abort=10' flags by default'
