@@ -27,7 +27,7 @@ __Notes:__
     - old pwnagotchi versions
     - tshark (with filter options)
 - The wordlist supplied is an extremely small sample wordlist. It's a slice of the original "rockyou" wordlist from the Kali distro. A much larger wordlist should be used for best results. [Wordlists for download](https://weakpass.com/wordlist). 
-- The single pcap provided can be cracked with the smal demo wordlist provded.
+- The single pcap provided can be cracked with the small demo wordlist provded.
 
 ## Pre-requisites/Initial Config
 
