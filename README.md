@@ -72,6 +72,3 @@ Hashcat is pretty good at providing detailed warnings if GPU Driver requirements
 ```
 
 
-### ‘cannot execute binary file: Exec format error’ on Ubuntu
-- Make sure you are on 64-bit arch
-  - https://appuals.com/fix-cannot-execute-binary-file-exec-format-error-ubuntu/
