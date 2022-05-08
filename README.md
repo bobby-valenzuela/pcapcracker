@@ -1,4 +1,4 @@
-# pcap-cracker
+# pcapcracker
 
 __What this does__
 
