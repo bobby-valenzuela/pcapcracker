@@ -1,7 +1,9 @@
 # pcapcracker
 
 __What this does__
+All this needs is some pcap files, and running this script will do the rest needed to attempt to crack those handshakes.
 
+Steps:
 1. Downloads HashCat (v5) and necessary utilities
 2. Runs pcap-to-hccapx converter on all your pcap files.
 3. Merges all hccapx files into one master file
