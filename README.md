@@ -40,7 +40,7 @@ __Notes:__
 
 ### Flags/Arguments
 - turbo : Will enables a higher performance mode on Hashcat (uses more GPU power/raises temperature threshold before stalling)
-  - Used by default. Adds these hashcat flags `-w 3 --hwmon-temp-abort=10`
+  - Adds these hashcat flags `-w 3 --hwmon-temp-abort=10`
   - Usage: `.\pcapcracker.ps1 turbo`
 - show: Lists all cracked handshakes
   - Usage: `.\pcapcracker.ps1 show`   
