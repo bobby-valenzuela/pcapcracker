@@ -98,7 +98,7 @@ Foreach-Object {
 cmd.exe /c copy /b .\pcaps\*.hccapx .\multi_2500.hccapx
 
 # Run hccapx against hashcat
-cd .\hashcat-5.1.0
+Set-Location .\hashcat-5.1.0
 if ( $additional_flags ){
     .\hashcat64.exe -m 2500 ..\multi_2500.hccapx ..\wordlist.txt -w 3 --hwmon-temp-abort=100
 }
@@ -122,7 +122,7 @@ if ( Test-Path ..\conversion_failed.txt  ){
 }
 
 $count_cracked = ((Get-Content '.\hashcat.potfile') | Measure-Object -Line).Lines 
-Write-Output "`n$count_cracked handshakes cracked. View your 'successfull_cracks.txt' file for a full list.`n";cd ..\
+Write-Output "`n$count_cracked handshakes cracked. View your 'successfull_cracks.txt' file for a full list.`n";Set-Location ..\
 
 if ( $count_cracked > 0 ) {
     ( Get-Content .\hashcat-5.1.0\hashcat.potfile ) > .\hashcat-5.1.0\successfull_cracks.txt
