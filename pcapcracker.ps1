@@ -19,7 +19,7 @@ if ( -not ( Test-Path .\wordlist.txt ) ){
 
 }
 
-Write-Output "Necessary files found.`n"
+Write-Output "Necessary files found."
 
 $additional_flags = $false
 
@@ -42,11 +42,15 @@ elseif ( "$($args[0])" -ne '' ) {
 
 ###### Action the download/installaiton of dependencies
 
-Write-Output "Checking for dependencies...`n"
+Write-Output "Checking for dependencies..."
 
-# Download 7Zip module
-Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force > $null 2>&1
-Install-Module 7Zip4PowerShell -Scope CurrentUser -Force > $null 2>&1
+# Download 7Zip module as needed
+if ( -not ( Test-CommandExists Expand-7Zip ) ){
+
+    Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force > $null 2>&1
+    Install-Module 7Zip4PowerShell -Scope CurrentUser -Force > $null 2>&1
+
+}
 
 # Check for hashcat dir
 if ( -not ( Test-Path .\hashcat-5.1.0 ) ){
@@ -124,8 +128,22 @@ if ( Test-Path ..\conversion_failed.txt  ){
 $count_cracked = ((Get-Content '.\hashcat.potfile') | Measure-Object -Line).Lines 
 Write-Output "`n$count_cracked handshakes cracked. View your 'successfull_cracks.txt' file for a full list.`n";Set-Location ..\
 
-if ( $count_cracked > 0 ) {
-    ( Get-Content .\hashcat-5.1.0\hashcat.potfile ) > .\hashcat-5.1.0\successfull_cracks.txt
+if ( $count_cracked -gt 0 ) {
+    ( Get-Content .\hashcat-5.1.0\hashcat.potfile ) > .\successfull_cracks.txt
     
 }
 
+# Functions
+Function Test-CommandExists
+{
+
+    Param ($command)
+
+    $oldPreference = $ErrorActionPreference
+    $ErrorActionPreference = ‘stop’
+
+    try {if(Get-Command $command){RETURN $true}}
+    Catch {RETURN $false}
+    Finally {$ErrorActionPreference=$oldPreference} # Preserver OG value
+
+} #end function test-CommandExists
